@@ -10,6 +10,11 @@ namespace StackRider.Player
             {
                 iCollectible.OnCollect();
             }
+            
+            else if (collision.TryGetComponent<IObstacle>(out IObstacle iObstacle))
+            {
+                iObstacle.DropBalls();
+            }
         }
     }
 }
