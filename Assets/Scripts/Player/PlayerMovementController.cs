@@ -1,29 +1,33 @@
 using UnityEngine;
 
-public class PlayerMovementController : MonoBehaviour
+namespace StackRider.Player
 {
-    [SerializeField] private float moveSpeed;
+    public class PlayerMovementController : MonoBehaviour
+    {
+        [SerializeField] private float moveSpeed;
 
-    private bool _isPlaying;
+        private bool _isPlaying;
     
-    private void Start()
-    {
+        private void Start()
+        {
         
-    }
+        }
 
-    private void Update()
-    {
-        _isPlaying = GameManager.Instance.state == GameState.Playing;
+        private void Update()
+        {
+            _isPlaying = GameManager.Instance.state == GameState.Playing;
 
-        Move();
-    }
+            Move();
+        }
 
-    private void Move()
-    {
-        float h = Input.GetAxisRaw("Horizontal");
+        private void Move()
+        {
+            float h = Input.GetAxisRaw("Horizontal");
         
-        Vector3 moveVector = new Vector3(h,0,1) * (moveSpeed * Time.deltaTime);
+            Vector3 moveVector = new Vector3(h,0,1) * (moveSpeed * Time.deltaTime);
 
-        transform.Translate(moveVector);
+            transform.Translate(moveVector);
+        }
     }
 }
+

@@ -1,23 +1,27 @@
 using UnityEngine;
 
-public class Ball : MonoBehaviour, ICollectible
+namespace StackRider.Collectible
 {
-    private BoxCollider _collider;
-    private bool _isStacked;
-    private void Start()
+    public class Ball : MonoBehaviour, ICollectible
     {
-        _collider = GetComponent<BoxCollider>();
-    }
+        private BoxCollider _collider;
+        private bool _isStacked;
+        private void Start()
+        {
+            _collider = GetComponent<BoxCollider>();
+        }
     
 
-    public void OnCollect()
-    {
-        StackManager.Instance.Pickup(transform);
-        _collider.isTrigger = true;
-    }
+        public void OnCollect()
+        {
+            StackManager.Instance.Pickup(transform);
+            _collider.isTrigger = true;
+        }
 
-    private void OnTriggerEnter(Collider other)
-    {
+        private void OnTriggerEnter(Collider other)
+        {
         
-    }
+        }
+    } 
 }
+

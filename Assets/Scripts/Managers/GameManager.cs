@@ -1,12 +1,18 @@
-public class GameManager : Singleton<GameManager>
+namespace StackRider
 {
-    public GameState state = GameState.Playing;
+    public class GameManager : Singleton<GameManager>
+    {
+        public GameState state = GameState.Playing;
+    }
+
+    public enum GameState
+    {
+        Idle,
+        Finished,
+        Failed,
+        Playing
+    }
 }
 
-public enum GameState
-{
-    Idle,
-    Finished,
-    Failed,
-    Playing
-}
+
+

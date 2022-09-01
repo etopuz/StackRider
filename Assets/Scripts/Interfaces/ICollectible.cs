@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface ICollectible
+namespace StackRider
 {
-    public void OnCollect();
+    public interface ICollectible
+    {
+        public void OnCollect();
+    }
 }

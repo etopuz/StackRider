@@ -1,12 +1,16 @@
 using UnityEngine;
 
-public class PlayerCollectController : MonoBehaviour
+namespace StackRider.Player
 {
-    private void OnTriggerEnter(Collider collision)
+    public class PlayerCollectController : MonoBehaviour
     {
-        if (collision.TryGetComponent<ICollectible>(out ICollectible iCollectible))
+        private void OnTriggerEnter(Collider collision)
         {
-            iCollectible.OnCollect();
+            if (collision.TryGetComponent<ICollectible>(out ICollectible iCollectible))
+            {
+                iCollectible.OnCollect();
+            }
         }
     }
 }
+
