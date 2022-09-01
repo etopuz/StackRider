@@ -1,7 +1,7 @@
 using StackRider;
 using UnityEngine;
 
-namespace  StackRider.Collectible
+namespace  StackRider.Collectibles
 {
     public class Chest : MonoBehaviour, ICollectible
     {

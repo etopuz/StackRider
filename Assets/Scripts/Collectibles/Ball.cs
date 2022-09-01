@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace StackRider.Collectible
+namespace StackRider.Collectibles
 {
     public class Ball : MonoBehaviour, ICollectible
     {
