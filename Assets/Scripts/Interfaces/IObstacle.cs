@@ -7,7 +7,7 @@ namespace StackRider
 {
     public interface IObstacle
     {
-        public void DropBall();
+        public void DropBalls();
     }
 }
 
