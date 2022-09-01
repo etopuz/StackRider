@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4363313685430098456}
   - component: {fileID: 7833924991280992717}
   - component: {fileID: 7539623852281655803}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StackableBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
