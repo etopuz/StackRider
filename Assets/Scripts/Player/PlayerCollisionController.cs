@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace StackRider.Player
 {
-    public class PlayerCollectController : MonoBehaviour
+    public class PlayerCollisionController : MonoBehaviour
     {
         private void OnTriggerEnter(Collider collision)
         {
