@@ -14,8 +14,7 @@ namespace StackRider
         [SerializeField] private Transform freeBallsContainer;
 
         public float moveForward = 0f;
-    
-    
+        
         private float _distanceBetweenBalls;
     
         private List<Transform> _stack = new List<Transform>();
@@ -24,6 +23,7 @@ namespace StackRider
         {
             _distanceBetweenBalls = mainBall.localScale.y;
             _stack.Add(mainBall);
+            
         }
 
         private void Update()
@@ -47,8 +47,9 @@ namespace StackRider
             }
         }
 
-        public void Drop(int numberOfDroppedBalls)
+        public void Drop(float obstacleSize)
         {
+            int numberOfDroppedBalls = (int) (obstacleSize / _distanceBetweenBalls);
             int removeIndex = _stack.Count - 1;
             if (numberOfDroppedBalls > removeIndex)
             {
