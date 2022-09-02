@@ -13,10 +13,11 @@ namespace StackRider
         [SerializeField] private Transform stackedBallsContainer;
         [SerializeField] private Transform freeBallsContainer;
 
+        public int NumberOfBalls => _stack.Count;
         public float moveForward = 0f;
+        public int maxStackAmount = 20;
         
         private float _distanceBetweenBalls;
-    
         private List<Transform> _stack = new List<Transform>();
 
         private void Start()
