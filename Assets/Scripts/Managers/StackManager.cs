@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using StackRider.Collectibles;
 using UnityEditor.Experimental.GraphView;
@@ -11,6 +12,8 @@ namespace StackRider
         [SerializeField] private Transform mainBall;
         [SerializeField] private Transform stackedBallsContainer;
         [SerializeField] private Transform freeBallsContainer;
+
+        public float moveForward = 0f;
     
     
         private float _distanceBetweenBalls;
@@ -22,7 +25,13 @@ namespace StackRider
             _distanceBetweenBalls = mainBall.localScale.y;
             _stack.Add(mainBall);
         }
-    
+
+        private void Update()
+        {
+            RotateBallsOnStack();
+            moveForward = (_stack.Count % 2 == 0) ? 1f : -1f;
+        }
+
         public void Pickup(Transform ball)
         {
             ball.transform.SetParent(stackedBallsContainer);
@@ -57,6 +66,11 @@ namespace StackRider
                 }
                 ShiftStack();
             }
+        }
+
+        public void RotateBallsOnStack()
+        {
+            
         }
     }
 }
