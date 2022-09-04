@@ -548,7 +548,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1319773832}
+  - {fileID: 7971863993744984512}
   - {fileID: 1519323548}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -1137,7 +1137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.0034529646, y: -0.14660011, z: 0.0005117371, w: 0.9891897}
-  m_LocalPosition: {x: 5.07, y: 5.54, z: -113.61}
+  m_LocalPosition: {x: 5.07, y: 8.05, z: -113.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1159,7 +1159,7 @@ MonoBehaviour:
   target: {fileID: 398953806}
   minFOV: 75
   maxFOV: 120
-  fovChangeSharpness: 15
+  fovChangeSharpness: 7
 --- !u!1 &977555025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,7 +1202,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 398953806}
+    m_TransformParent: {fileID: 1519323548}
     m_Modifications:
     - target: {fileID: 4363313685430098459, guid: 6a67c63a6f72c204084fb843ba455fe8,
         type: 3}
@@ -1262,7 +1262,7 @@ PrefabInstance:
     - target: {fileID: 4363313685430098460, guid: 6a67c63a6f72c204084fb843ba455fe8,
         type: 3}
       propertyPath: m_Name
-      value: StackableBall
+      value: HeadBall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a67c63a6f72c204084fb843ba455fe8, type: 3}
@@ -1348,7 +1348,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1319773832}
   m_Father: {fileID: 398953806}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1680,6 +1681,7 @@ MonoBehaviour:
   mainBall: {fileID: 1319773832}
   stackedBallsContainer: {fileID: 1519323548}
   freeBallsContainer: {fileID: 977555026}
+  character: {fileID: 7971863993744984512}
   moveForward: 0
   maxStackAmount: 20
 --- !u!1001 &1913217562
@@ -3785,14 +3787,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7343700543402267514}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1301845141544130910}
   - {fileID: 1605838344495179036}
   - {fileID: 328788699241802948}
-  m_Father: {fileID: 1319773832}
+  m_Father: {fileID: 398953806}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7971863993744984513

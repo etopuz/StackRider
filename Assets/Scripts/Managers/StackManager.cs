@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using StackRider.Collectibles;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -8,29 +9,31 @@ namespace StackRider
 {
     public class StackManager : Singleton<StackManager>
     {
-        [Header("References")]
+        [Header("Player Models")]
         [SerializeField] private Transform mainBall;
+        [SerializeField] private Transform character;
+        
+        [Header("Ball Containers")]
         [SerializeField] private Transform stackedBallsContainer;
         [SerializeField] private Transform freeBallsContainer;
 
-        public int NumberOfBalls => _stack.Count;
-        public float moveForward = 0f;
+        [Header("Stack")] 
+        [SerializeField] private float ballRotationSpeed; 
         public int maxStackAmount = 20;
-        
+
         private float _distanceBetweenBalls;
         private List<Transform> _stack = new List<Transform>();
-
+        public int NumberOfBalls => _stack.Count;
         private void Start()
         {
             _distanceBetweenBalls = mainBall.localScale.y;
             _stack.Add(mainBall);
-            
         }
 
         private void Update()
         {
             RotateBallsOnStack();
-            moveForward = (_stack.Count % 2 == 0) ? 1f : -1f;
+
         }
 
         public void Pickup(Transform ball)
@@ -46,6 +49,8 @@ namespace StackRider
             {
                 _stack[i].localPosition = new Vector3(0, (_stack.Count - i  - 1) * _distanceBetweenBalls, 0);
             }
+
+            character.localPosition = new Vector3(0, mainBall.localPosition.y + _distanceBetweenBalls/2, 0);
         }
 
         public void Drop(float obstacleSize)
@@ -70,9 +75,14 @@ namespace StackRider
             }
         }
 
-        public void RotateBallsOnStack()
+        private void RotateBallsOnStack()
         {
-            
+            int rotateDirection = 1;
+            for (int i = _stack.Count - 1; i >= 0; i--)
+            {
+                
+                rotateDirection *= -1;
+            }
         }
     }
 }
