@@ -33,7 +33,6 @@ namespace StackRider
         private void Update()
         {
             RotateBallsOnStack();
-
         }
 
         public void Pickup(Transform ball)
@@ -80,7 +79,7 @@ namespace StackRider
             int rotateDirection = 1;
             for (int i = _stack.Count - 1; i >= 0; i--)
             {
-                
+                _stack[i].Rotate(rotateDirection * ballRotationSpeed * Time.deltaTime, 0f,0f);
                 rotateDirection *= -1;
             }
         }

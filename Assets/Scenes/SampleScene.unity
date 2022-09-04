@@ -1679,10 +1679,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainBall: {fileID: 1319773832}
+  character: {fileID: 7971863993744984512}
   stackedBallsContainer: {fileID: 1519323548}
   freeBallsContainer: {fileID: 977555026}
-  character: {fileID: 7971863993744984512}
-  moveForward: 0
+  ballRotationSpeed: 100
   maxStackAmount: 20
 --- !u!1001 &1913217562
 PrefabInstance:
@@ -3789,7 +3789,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1301845141544130910}
   - {fileID: 1605838344495179036}
