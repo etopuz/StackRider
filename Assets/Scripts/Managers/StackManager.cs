@@ -35,7 +35,10 @@ namespace StackRider
 
         private void Update()
         {
-            RotateBallsOnStack();
+            if (_gameManager.state == GameState.Playing)
+            {
+                RotateBallsOnStack();
+            }
         }
 
         public void Pickup(Transform ball)
