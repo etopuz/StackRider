@@ -7,11 +7,11 @@ namespace StackRider.Player
     {
         [SerializeField] private LayerMask finishLayer;
 
-        private GameManager _gameManager;
+        private LevelManager _levelManager;
 
         private void Awake()
         {
-            _gameManager = GameManager.Instance;
+            _levelManager = LevelManager.Instance;
         }
 
         private void OnTriggerEnter(Collider collision)
@@ -28,7 +28,7 @@ namespace StackRider.Player
             
             else if ((finishLayer.value & (1 << collision.gameObject.layer)) > 0)
             {
-                _gameManager.Success();
+                StartCoroutine(_levelManager.PassLevelAfterWait());
             }
         }
     }

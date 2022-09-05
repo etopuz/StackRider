@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +14,10 @@ namespace StackRider
         [Header("Level Management")] 
         public int levelIndex;
         [SerializeField] private List<GameObject> levels;
+        
+        [Header("Wait Seconds")]
+        [SerializeField] private float restartLevelWaitSecond;
+        [SerializeField] private float passLevelWaitSecond;
         
         
         private GameManager _gameManager;
@@ -35,28 +40,27 @@ namespace StackRider
             GameObject activeLevel = Instantiate(levels[levelIndex], Vector3.zero, Quaternion.identity);
         }
 
-        public IEnumerator RestartLevelAfterWait(float seconds)
+        public IEnumerator RestartLevelAfterWait()
         { 
-            yield return new WaitForSeconds (seconds);
+            _gameManager.state = GameState.Failed;
+            yield return new WaitForSeconds (restartLevelWaitSecond);
             
             collectedGems = 0;
             
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex,LoadSceneMode.Single);
-            
-            _gameManager.state = GameState.Playing;
         }
 
-        public IEnumerator PassLevelAfterWait(float seconds)
+        public IEnumerator PassLevelAfterWait()
         {
-            yield return new WaitForSeconds (seconds);
+            _gameManager.state = GameState.Success;
+
+            yield return new WaitForSeconds (passLevelWaitSecond);
             
             _gameManager.AddGem(collectedGems);
             collectedGems = 0;
             
             PlayerPrefs.SetInt(TagLayerData.LEVEL, levelIndex += 1);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
-            
-            _gameManager.state = GameState.Playing;
         }
 
         public void AddGem()
