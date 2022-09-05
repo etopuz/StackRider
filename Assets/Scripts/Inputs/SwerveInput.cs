@@ -1,15 +1,36 @@
 using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace StackRider.Inputs
 {
     public class SwerveInput : Singleton<SwerveInput>
     {
+        public float MoveFactorX => _moveFactorX;
+
+        public bool isEnabled = true;
+        
         private float _lastFrameFingerPositionX;
         private float _moveFactorX;
 
-        public float MoveFactorX => _moveFactorX;
+        private GameManager _gameManager;
+
+        protected override void Awake()
+        {
+            _gameManager = GameManager.Instance;
+        }
         private void Update()
+        {
+            isEnabled = (_gameManager.state == GameState.Playing);
+            
+            if (isEnabled)
+            {
+                Swerve();
+            }
+        }
+
+
+        private void Swerve()
         {
             if (Input.GetMouseButtonDown(0))
             {
