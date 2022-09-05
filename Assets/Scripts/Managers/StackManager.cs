@@ -24,8 +24,11 @@ namespace StackRider
         private float _distanceBetweenBalls;
         private List<Transform> _stack = new List<Transform>();
         public int NumberOfBalls => _stack.Count;
+
+        private GameManager _gameManager;
         private void Start()
         {
+            _gameManager = GameManager.Instance;
             _distanceBetweenBalls = mainBall.localScale.y;
             _stack.Add(mainBall);
         }
@@ -58,7 +61,7 @@ namespace StackRider
             int removeIndex = _stack.Count - 1;
             if (numberOfDroppedBalls > removeIndex)
             {
-                GameManager.Instance.state = GameState.Failed;
+                _gameManager.Fail();
             }
 
             else

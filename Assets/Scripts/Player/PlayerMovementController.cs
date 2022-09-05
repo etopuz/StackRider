@@ -16,6 +16,8 @@ namespace StackRider.Player
         [SerializeField] private Transform road;
         [SerializeField] private Transform sphere;
 
+        private GameManager _gameManager;
+        
         private float _lastFrameFingerPositionX;
         private float _moveFactorX;
 
@@ -24,13 +26,17 @@ namespace StackRider.Player
         private void Start()
         {
             Input.multiTouchEnabled = false;
+            _gameManager = GameManager.Instance;
             _movementBound = (road.localScale.x - sphere.localScale.x) / 2f;
         }
         
         private void Update()
         {
-            Move();
-            ClampMovement();
+            if (_gameManager.state == GameState.Playing)
+            {
+                Move();
+                ClampMovement();
+            }
         }
 
         private void Move()

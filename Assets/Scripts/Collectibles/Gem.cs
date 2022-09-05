@@ -10,25 +10,25 @@ namespace StackRider.Collectibles
         [SerializeField] private bool rotate; // do you want it to rotate?
         [SerializeField] private float rotationSpeed;
 
-        private GameManager _gameManager;
+        private LevelManager _levelManager;
 
         private void Start()
         {
-            _gameManager = GameManager.Instance;
+            _levelManager = LevelManager.Instance;
         }
 
         private void Update()
         {
             if (rotate)
             {
-                transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime, Space.World);
+                transform.Rotate(Vector3.up * (rotationSpeed * Time.deltaTime), Space.World);
             }
                 
         }
 
         public void OnCollect()
         {
-            _gameManager.AddGem();
+            _levelManager.AddGem();
             //AudioManager.Instance.PlayCollectAudio(transform.position);
             Destroy(gameObject);
         }
