@@ -11,6 +11,7 @@ namespace StackRider.Player
         [SerializeField] private float blendSpeed = 5f;
         
         private StackManager _stackManager;
+        private GameManager _gameManager;
 
         private int _animIDMovementBlend;
         private float _movementBlend;
@@ -27,20 +28,28 @@ namespace StackRider.Player
         {
             _animIDMovementBlend = Animator.StringToHash("MoveBlend");
             _stackManager = StackManager.Instance;
+            _gameManager = GameManager.Instance;
         }
         
         public void Update()
         {
+            _fail = (_gameManager.state == GameState.Failed);
+            _success = (_gameManager.state == GameState.Success);
+            CalculateBlending();
             Animate();
         }
 
         private void Animate()
         {
+            animator.SetFloat(_animIDMovementBlend, _movementBlend);
+            //animator.SetBool(_animIDFail, _fail);
+            //animator.SetBool(_animIDSuccess, _success);
+        }
+
+        private void CalculateBlending()
+        {
             _targetBlend = (_stackManager.NumberOfBalls % 2 == 0) ? 1f : -1f;
             _movementBlend = Mathf.Lerp(_movementBlend,_targetBlend , Time.deltaTime * blendSpeed);
-            animator.SetFloat(_animIDMovementBlend, _movementBlend);
-            // animator.SetBool(_animIDFail, _fail);
-            // animator.SetBool(_animIDSuccess, _success);
         }
     }
     
