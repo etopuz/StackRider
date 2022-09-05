@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalMovementSpeed: 3
-  verticalMovementSpeed: 6
+  verticalMovementSpeed: 20
   road: {fileID: 1336463789141194348, guid: fa16b6bba2f40eb48bc6caf13f6c396d, type: 3}
   sphere: {fileID: 1319773832}
 --- !u!65 &398953808
@@ -1548,10 +1548,12 @@ MonoBehaviour:
   levelIndex: 0
   levels:
   - {fileID: 5206169581967613347, guid: 1cd3198a5f5129149be0daf9f810e413, type: 3}
-  - {fileID: 5206169581967613347, guid: 94a01bd91347b8f4f9217676e0517575, type: 3}
-  - {fileID: 5206169581967613347, guid: dc525358d673a5b47abe9c91113396f2, type: 3}
-  - {fileID: 5206169581967613347, guid: e12815657af2ec14e851d5aa994f00a5, type: 3}
-  - {fileID: 5206169581967613347, guid: bf560eea37980ac409563fa5bc225565, type: 3}
+  - {fileID: 5206169581967613347, guid: 3a0f7729e3e6806408ba1835ee07a90c, type: 3}
+  - {fileID: 5206169581967613347, guid: 0ade2458478fcd44490a00073631c2e0, type: 3}
+  - {fileID: 5206169581967613347, guid: a34f7d94ddfba094fbabac1f4faa8604, type: 3}
+  - {fileID: 5206169581967613347, guid: 4dde3c5039e75fe48b5c928a5f627c6a, type: 3}
+  restartLevelWaitSecond: 7
+  passLevelWaitSecond: 7
 --- !u!1 &1814187722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,6 +1633,7 @@ MonoBehaviour:
   character: {fileID: 7971863993744984512}
   stackedBallsContainer: {fileID: 1519323548}
   freeBallsContainer: {fileID: 1006651014}
+  ballDroppingTimeWhenSuccess: 0.3
   ballRotationSpeed: 100
   maxStackAmount: 20
 --- !u!1 &1968917849
@@ -1823,8 +1826,6 @@ MonoBehaviour:
   state: 3
   numberOfGemsCollected: 0
   playerObj: {fileID: 398953805}
-  restartLevelWaitSecond: 5
-  passLevelWaitSecond: 5
 --- !u!1 &197637057941408526
 GameObject:
   m_ObjectHideFlags: 0
