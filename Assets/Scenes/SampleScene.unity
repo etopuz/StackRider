@@ -1823,8 +1823,8 @@ MonoBehaviour:
   state: 3
   numberOfGemsCollected: 0
   playerObj: {fileID: 398953805}
-  restartLevelWaitSecond: 3
-  passLevelWaitSecond: 3
+  restartLevelWaitSecond: 5
+  passLevelWaitSecond: 5
 --- !u!1 &197637057941408526
 GameObject:
   m_ObjectHideFlags: 0
