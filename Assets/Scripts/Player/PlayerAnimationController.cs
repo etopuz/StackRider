@@ -26,9 +26,16 @@ namespace StackRider.Player
 
         public void Start()
         {
-            _animIDMovementBlend = Animator.StringToHash("MoveBlend");
             _stackManager = StackManager.Instance;
             _gameManager = GameManager.Instance;
+            InıtAnimIDs();
+        }
+
+        private void InıtAnimIDs()
+        {
+            _animIDMovementBlend = Animator.StringToHash("MoveBlend");
+            _animIDFail = Animator.StringToHash("fail");
+            _animIDSuccess = Animator.StringToHash("success");
         }
         
         public void Update()
@@ -42,8 +49,8 @@ namespace StackRider.Player
         private void Animate()
         {
             animator.SetFloat(_animIDMovementBlend, _movementBlend);
-            //animator.SetBool(_animIDFail, _fail);
-            //animator.SetBool(_animIDSuccess, _success);
+            animator.SetBool(_animIDFail, _fail);
+            animator.SetBool(_animIDSuccess, _success);
         }
 
         private void CalculateBlending()
