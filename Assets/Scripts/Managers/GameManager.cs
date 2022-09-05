@@ -14,6 +14,7 @@ namespace StackRider
         
         [SerializeField] private GameObject playerObj;
 
+        [Header("Wait Seconds")]
         [SerializeField] private float restartLevelWaitSecond;
         [SerializeField] private float passLevelWaitSecond;
         
