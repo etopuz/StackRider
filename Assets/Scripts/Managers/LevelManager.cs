@@ -26,7 +26,7 @@ namespace StackRider
         {
             levelIndex = PlayerPrefs.GetInt(TagLayerData.LEVEL);
 
-            if (levelIndex > levels.Count)
+            if (levelIndex >= levels.Count)
             {
                 levelIndex = 0;
                 PlayerPrefs.SetInt(TagLayerData.LEVEL, levelIndex);
