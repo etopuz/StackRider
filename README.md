@@ -2,6 +2,8 @@
 # Stack Rider Clone
 This game is made for educational purposes. Your goal in this game is to collect as many balls and gems as possible, but be careful, the obstacles in your way will drop the balls you collect. If your number of balls is less than 1, you will lose the game.
 
+![Gameplay](https://media.giphy.com/media/pe1YiGQWEK2E1XmPt8/giphy.gif)
+
 ## Technical Details
 
 ### Version:
