@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace StackRider.Inputs
 {
-    public class SwerveInput : Singleton<SwerveInput>
+    public class SwerveInput : MonoBehaviour
     {
         public float MoveFactorX => _moveFactorX;
 
@@ -15,10 +15,11 @@ namespace StackRider.Inputs
 
         private GameManager _gameManager;
 
-        protected override void Awake()
+        protected void Awake()
         {
             _gameManager = GameManager.Instance;
         }
+        
         private void Update()
         {
             isEnabled = (_gameManager.state == GameState.Playing);

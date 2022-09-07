@@ -17,6 +17,7 @@ namespace StackRider.Player
         [SerializeField] private Transform sphere;
 
         private GameManager _gameManager;
+        private SwerveInput _swerveInput;
         
         private float _lastFrameFingerPositionX;
         private float _moveFactorX;
@@ -26,6 +27,7 @@ namespace StackRider.Player
         private void Start()
         {
             Input.multiTouchEnabled = false;
+            _swerveInput = GetComponent<SwerveInput>();
             _gameManager = GameManager.Instance;
             _movementBound = (road.localScale.x - sphere.localScale.x) / 2f;
         }
@@ -41,7 +43,7 @@ namespace StackRider.Player
 
         private void Move()
         {
-            Vector3 moveVector = new Vector3(SwerveInput.Instance.MoveFactorX * horizontalMovementSpeed,0 ,verticalMovementSpeed) * Time.deltaTime;
+            Vector3 moveVector = new Vector3(_swerveInput.MoveFactorX * horizontalMovementSpeed,0 ,verticalMovementSpeed) * Time.deltaTime;
             transform.Translate(moveVector);
         }
         
