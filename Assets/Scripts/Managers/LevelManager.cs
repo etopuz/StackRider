@@ -48,6 +48,8 @@ namespace StackRider
             collectedGems = 0;
             
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex,LoadSceneMode.Single);
+            
+            _gameManager.Play();
         }
 
         public IEnumerator PassLevelAfterWait()
@@ -61,6 +63,8 @@ namespace StackRider
             
             PlayerPrefs.SetInt(TagLayerData.LEVEL, levelIndex += 1);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+            
+            _gameManager.Play();
         }
 
         public void AddGem()

@@ -19,6 +19,11 @@ namespace StackRider
         }
         public void OnStart()
         {
+            Play();
+        }
+
+        public void Play()
+        {
             state = GameState.Playing;
             playerObj.SetActive(true);
         }
