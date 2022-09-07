@@ -17,11 +17,6 @@ namespace StackRider.Collectibles
             StackManager.Instance.Pickup(transform);
             _collider.isTrigger = true;
         }
-
-        private void OnTriggerEnter(Collider other)
-        {
-        
-        }
     } 
 }
 
